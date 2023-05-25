@@ -25,4 +25,22 @@ Route::get('register', function () {
     return view('register');
 });
 
-Route::resource('posts', PostController::class);
+Route::get('posts', function () {
+    return view('posts.index');
+});
+
+Route::get('posts/create', function () {
+    return view('posts.create');
+});
+
+Route::get('posts/edit', function () {
+    return view('posts.edit');
+});
+
+Route::get('posts/show', function () {
+    return view('posts.show');
+});
+
+Route::get('user/posts', function () {
+    return view('users.index');
+});

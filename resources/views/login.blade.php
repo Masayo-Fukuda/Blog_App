@@ -6,8 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"></script>
+  <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
 <body>
   <header>
     <p>Blog App</p>
