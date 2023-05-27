@@ -18,13 +18,13 @@
     <p>Posts</p>
   </div>
 
-  <div class="card border-success mb-3" style="max-width: 18rem;">
-    <div class="card-header bg-transparent border-success">User</div>
-    <div class="card-body text-success">
+  <div class="card border-primary-subtle mb-3" style="max-width: 18rem;">
+    <div class="card-header bg-transparent border-primary-subtle">User</div>
+    <div class="card-body text-primary-emphasis">
       <h5 class="card-title">Title</h5>
       <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat dolores quidem repellat sint eaque hic, veniam, quasi fuga eum cum </p>
     </div>
-    <div class="card-footer bg-transparent border-success">Date</div>
+    <div class="card-footer bg-transparent border-primary-subtle">Date</div>
   </div>
 
   <footer>
