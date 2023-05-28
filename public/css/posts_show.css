@@ -1,0 +1,12 @@
+#post {
+  margin: 100px auto;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons > button {
+  margin: 0 10px;
+}

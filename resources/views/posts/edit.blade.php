@@ -29,6 +29,10 @@
     </div>
   </div>
 
+  <div class="create_button">
+    <button type="button" class="btn btn-outline-secondary">Create</button>
+  </div>
+
   <footer>
     <small>Copyright &copy; 2023 Blog App</small>
   </footer>

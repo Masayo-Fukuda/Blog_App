@@ -6,6 +6,7 @@ header {
   top: 0;
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 
 header > p {
@@ -35,5 +36,17 @@ footer {
   bottom: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.create_button {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.edit_button {
+  margin: 10px;
+  display: flex;
   justify-content: center;
 }
