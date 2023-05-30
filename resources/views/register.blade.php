@@ -1,10 +1,6 @@
   @extends('layouts.app')
-
+  @section('title', 'Register')
   @section('body')
-      <header>
-          <p>Blog App</p>
-      </header>
-
       <div class="title">
           <p>Register</p>
       </div>

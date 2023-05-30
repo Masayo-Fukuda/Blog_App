@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,11 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('login', function () {
-    return view('login');
-});
-
-Route::view('login', 'login');
+Route::get('login', [LoginController::class, 'login']);
 
 Route::get('register', function () {
     return view('register');
@@ -31,15 +28,20 @@ Route::get('posts', function () {
     return view('posts.index');
 });
 
+// UserPostController
+Route::get('user/{userId}/posts', function () {
+    return view('user.posts.index');
+});
+
 Route::get('posts/create', function () {
     return view('posts.create');
 });
 
-Route::get('posts/edit', function () {
+Route::get('posts/{id}/edit', function () {
     return view('posts.edit');
 });
 
-Route::get('posts/show', function () {
+Route::get('posts/{id}/show', function () {
     return view('posts.show');
 });
 
