@@ -21,6 +21,8 @@ Route::get('login', function () {
     return view('login');
 });
 
+Route::view('login', 'login');
+
 Route::get('register', function () {
     return view('register');
 });
