@@ -1,5 +1,5 @@
   @extends('layouts.app')
-  @section('title', 'Login')
+  @section('title', 'create')
   @section('body')
       <div class="title">
         <p>Create new post</p>

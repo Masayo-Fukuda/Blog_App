@@ -1,5 +1,5 @@
   @extends('layouts.app')
-  @section('title', 'Login')
+  @section('title', 'edit')
   @section('body')
         <div class="title">
           <p>Edit post</p>

@@ -23,15 +23,15 @@ header > p {
 }
 
 .box {
-  width: 40vw;
+  width: 40%;
   height: auto;
   margin: auto;
 }
 
 footer {
   height: 50px;
-  width: 100vw;
-  background-color: rgba(37, 106, 202, 0.842);
+  width: 100%;
+  background-color: rgba(37, 106, 202, 1);
   position: fixed;
   bottom: 0;
   display: flex;
