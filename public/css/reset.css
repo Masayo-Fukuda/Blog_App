@@ -28,8 +28,21 @@ header > p {
   margin: auto;
 }
 
+.error {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  border: 2px solid rgb(210, 105, 105);
+  border-radius: 5px;
+  background-color: rgb(231, 142, 142);
+}
+
+.error > p {
+  margin-bottom: initial;
+}
+
 footer {
-  height: 50px;
+  height: 20px;
   width: 100%;
   background-color: rgba(37, 106, 202, 1);
   position: fixed;

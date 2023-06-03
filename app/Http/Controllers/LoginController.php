@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -14,12 +15,16 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $user_info = $request->validate([
+        $validator = Validator::make($request->all(), [
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
 
-        if (Auth::attempt($user_info)) {
+        if (Auth::attempt($request)) {
             $request->session()->regenerate();
             return redirect()->route('posts.index');
         } else {
