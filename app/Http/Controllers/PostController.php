@@ -37,6 +37,19 @@ class PostController extends Controller
         ]);
 
 
+        // if ($validator) {
+        //     $post = new Post;
+        //     $post -> user_id = Auth::id();
+        //     $post -> title = $request ->title;
+        //     $post -> body = $request -> body;
+
+        //     $post -> save();
+
+        //     return redirect()->route('posts.index');
+        // } else {
+        //     return redirect()->back()->withErrors($validator);
+        // }
+
         if ($validator) {
             $post = new Post;
             $post -> user_id = Auth::id();
@@ -46,17 +59,20 @@ class PostController extends Controller
             $post -> save();
 
             return redirect()->route('posts.index');
-        } else {
-            return redirect()->back()->withErrors($validator);
         }
+
+        return redirect()->back()->withErrors($validator);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        return view('posts.show');
+        // $post = Post::where('id', $id)->get();
+        $post = Post::find($id);
+        // dd($post);
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -95,8 +111,12 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        $post->delete();
+
+        return redirect()->route('posts.index');
     }
 }

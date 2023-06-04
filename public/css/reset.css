@@ -63,3 +63,7 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+#posts:hover {
+  border-width: 3px;
+}

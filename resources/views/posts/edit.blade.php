@@ -15,7 +15,7 @@
         @endif
 
         <div class="box">
-          <form action="{{ route('posts.update', $task->id) }}" method="post">
+          <form action="{{ route('posts.update', $post->id) }}" method="post">
             @csrf
             @method('put')
             <div class="mb-3">
@@ -24,7 +24,7 @@
             </div>
             <div class="mb-3">
               <label for="exampleFormControlTextarea1" class="form-label">Body-less than 140 characters</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value="{{ $post->body }}"></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{ $post->body }}</textarea>
             </div>
             <div class="create_button">
               <button type="submit" class="btn btn-outline-secondary">Edit</button>
