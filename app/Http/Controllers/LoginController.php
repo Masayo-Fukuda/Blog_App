@@ -24,15 +24,6 @@ class LoginController extends Controller
             return redirect()->back()->withErrors($validator);
         }
 
-        // if (Auth::attempt($request)) {
-        //     $request->session()->regenerate();
-        //     return redirect()->route('posts.index');
-        // } else {
-        //     return redirect()->back()->withErrors([
-        //         'email' => 'Failed login.',
-        //     ]);
-        // }
-
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $request->session()->regenerate();
             return redirect()->route('posts.index');
