@@ -30,7 +30,7 @@ class RegisterController extends Controller
         $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'password' => Hash::make($request['password']),
+            'password' => $request['password'],
         ]);
 
         return redirect('/posts');
