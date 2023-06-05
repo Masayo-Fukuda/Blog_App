@@ -36,27 +36,12 @@ class PostController extends Controller
             'body' => ['required', 'max:140'],
         ]);
 
-
-        // if ($validator) {
-        //     $post = new Post;
-        //     $post -> user_id = Auth::id();
-        //     $post -> title = $request ->title;
-        //     $post -> body = $request -> body;
-
-        //     $post -> save();
-
-        //     return redirect()->route('posts.index');
-        // } else {
-        //     return redirect()->back()->withErrors($validator);
-        // }
-
         if ($validator) {
-            $post = new Post;
-            $post -> user_id = Auth::id();
-            $post -> title = $request ->title;
-            $post -> body = $request -> body;
-
-            $post -> save();
+            $post = Post::create([
+                'user_id' => Auth::id(),
+                'title' => $request->input('title'),
+                'body' => $request['body'],
+            ]);
 
             return redirect()->route('posts.index');
         }
@@ -70,7 +55,7 @@ class PostController extends Controller
     public function show($id)
     {
         // $post = Post::where('id', $id)->get();
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
         // dd($post);
         return view('posts.show', compact('post'));
     }
@@ -96,16 +81,16 @@ class PostController extends Controller
         ]);
 
         if ($validator) {
-            $post = Post::find($id);
-            $post -> title = $request ->title;
-            $post -> body = $request -> body;
 
-            $post -> save();
+            Post::where('id', $id)->update([
+                'title' => $request->title,
+                'body' => $request->body,
+            ]);
 
             return redirect()->route('posts.index');
-        } else {
-            return redirect()->back()->withErrors($validator);
         }
+
+        return redirect()->back()->withErrors($validator);
     }
 
     /**

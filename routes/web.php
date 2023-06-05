@@ -27,37 +27,5 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::get('register', [RegisterController::class, 'index']);
 Route::post('register', [RegisterController::class, 'register'])->name('register');
 
-Route::resource('posts', PostController::class);
+Route::resource('posts', PostController::class)->middleware('Auth');
 
-
-
-
-
-
-
-
-
-// Route::get('posts', function () {
-//     return view('posts.index');
-// });
-
-// // UserPostController
-// Route::get('user/{userId}/posts', function () {
-//     return view('user.posts.index');
-// });
-
-// Route::get('posts/create', function () {
-//     return view('posts.create');
-// });
-
-// Route::get('posts/{id}/edit', function () {
-//     return view('posts.edit');
-// });
-
-// Route::get('posts/{id}/show', function () {
-//     return view('posts.show');
-// });
-
-// Route::get('user/posts', function () {
-//     return view('users.posts.index');
-// });
