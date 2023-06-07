@@ -13,7 +13,7 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
-       if(! Auth::check()) {
+       if(! auth::check()) {
         return route('login');
        }
     }

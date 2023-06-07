@@ -3,51 +3,22 @@
 @section('body')
 
   <div class="title">
-    <p>User's posts</p>
+    <p>{{ Auth::user()->name }}'s posts</p>
   </div>
 
   <div class="py-5">
-
-    <div class="d-flex justify-content-center">
-      <div id="post" class="card border-primary-subtle mb-3"  style="max-width: 600px;">
-        <div class="card-header bg-transparent border-primary-subtle">User</div>
-        <div class="card-body text-primary-emphasis">
-            <h5 class="card-title">Title</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat dolores quidem
-                repellat sint eaque hic, veniam, quasi fuga eum cum </p>
+    @foreach ($posts as $post)
+      <div class="d-flex justify-content-center">
+        <div id="posts" class="card border-primary-subtle mb-3" style="max-width: 600px;" onclick="location.href='{{ route('posts.show', $post->id) }}'">
+          <div class="card-header bg-transparent border-primary-subtle">{{ $post->user->name }}</div>
+          <div class="card-body text-primary-emphasis">
+              <h5 class="card-title">{{ $post->title }}</h5>
+              <p class="card-text">{{ $post->body }}</p>
+          </div>
+          <div class="card-footer bg-transparent border-primary-subtle">{{ $post->created_at }}
+          </div>
         </div>
-        <div class="card-footer bg-transparent border-primary-subtle">Date</div>
-     </div>
-    </div>
-      
-
-    <div class="d-flex justify-content-center">
-      <div id="post" class="card border-primary-subtle mb-3" style="max-width: 600px;">
-        <div class="card-header bg-transparent border-primary-subtle">User</div>
-        <div class="card-body text-primary-emphasis">
-            <h5 class="card-title">Title</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, deleniti
-                consequuntur corrupti officia ipsam facilis nemo excepturi dicta atque iure. Assumenda, sunt?
-                Nostrum modi voluptatem</p>
-        </div>
-        <div class="card-footer bg-transparent border-primary-subtle">Date</div>
       </div>
-    </div>
-
-      
-
-    <div class="d-flex justify-content-center">
-      <div id="post" class="card border-primary-subtle mb-3" style="max-width: 600px;">
-        <div class="card-header bg-transparent border-primary-subtle">User</div>
-        <div class="card-body text-primary-emphasis">
-            <h5 class="card-title">Title</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, deleniti
-                consequuntur corrupti officia ipsam facilis nemo excepturi dicta atque iure. Assumenda, sunt?
-                Nostrum modi voluptatem</p>
-        </div>
-        <div class="card-footer bg-transparent border-primary-subtle">Date</div>
-    </div>
-    </div>
-
+    @endforeach
   </div>
 @endsection

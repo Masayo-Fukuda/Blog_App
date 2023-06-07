@@ -33,4 +33,11 @@ class LoginController extends Controller
             'email' => 'Failed login.',
         ]);
     }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect('/login');
+    }
 }
