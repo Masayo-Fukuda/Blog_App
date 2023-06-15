@@ -16,11 +16,21 @@
 
       <div class="buttons">
           <button type="button" class="btn btn-outline-primary border-primary-subtle" onclick="location.href='{{ route('posts.edit', $post->id) }}'">Edit</button>
-          <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+
+          <form action="{{ route('posts.destroy', $post->id) }}" method="post" id="delete-form">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-outline-danger border-danger-subtle" onclick="confirm('Sure?')">Delete</button>
+            <button type="submit" class="btn btn-outline-danger border-danger-subtle" onclick="return confirmDelete()">Delete</button>
           </form>
+        
+          <script>
+              function confirmDelete() {
+                  if (confirm('Are you sure you want to delete this post?')) {
+                      document.getElementById('delete-form').submit();
+                  }
+                  return false;
+              }
+          </script>
       </div>
 
   @endsection

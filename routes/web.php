@@ -30,7 +30,7 @@ Route::post('register', [RegisterController::class, 'register'])->name('register
 Route::group(['middleware' => 'auth'], function(){
  
     Route::resource('posts', PostController::class);
-    Route::get('users_posts/{id}', [UserPostController::class, 'index'])->name('users_posts.index');
+    Route::get('users_posts', [UserPostController::class, 'index'])->name('users_posts.index');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
    
 });

@@ -33,10 +33,6 @@
                 <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
                 <input type="password" name="password_confirmation" class="form-control" id="exampleInputPassword2">
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
             <button type="submit" class="btn btn-outline-secondary">Submit</button>
         </form>
       </div>
