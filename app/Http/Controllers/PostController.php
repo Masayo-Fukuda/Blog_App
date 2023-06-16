@@ -36,9 +36,13 @@ class PostController extends Controller
             'body' => ['required', 'max:140'],
         ]);
 
+        $user = Auth::user();
+
         if ($validator) {
-            $post = Post::create([
-                'user_id' => Auth::id(),
+
+            $user->posts()->get();
+
+            $post = $user->posts()->create([
                 'title' => $request->input('title'),
                 'body' => $request['body'],
             ]);
@@ -52,21 +56,16 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        // $post = Post::where('id', $id)->get();
-        $post = Post::findOrFail($id);
-        // dd($post);
         return view('posts.show', compact('post'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        $post = Post::findOrFail($id);
-
         return view('posts.edit', compact('post'));
     }
 
@@ -96,10 +95,8 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        $post = Post::findOrFail($id);
-
         $post->delete();
 
         return redirect()->route('posts.index');
